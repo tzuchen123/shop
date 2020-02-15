@@ -1,0 +1,23 @@
+#banner .swiper-wrapper {
+  width: 100%;
+  height: 60vh;
+}
+
+#banner .swiper-wrapper .img1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/blur-1850082_1920.jpg");
+}
+
+#banner .swiper-wrapper .img2 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/clothing-store-984396_1920.jpg");
+}
+
+#banner .swiper-wrapper .img3 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/fashion-1031469_1920.jpg");
+}
+
