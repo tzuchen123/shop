@@ -10,7 +10,6 @@ class ProductTypesController extends Controller
     public function index()
     {
         $types = ProductType::all();
-        // dd($products);
 
         return view('admin.product_types.index', compact("types"));
     }
@@ -35,6 +34,9 @@ class ProductTypesController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'typename' => 'required|max:3'
+        ]);
         $requsetData = $request->all();
 
         ProductType::create($requsetData);

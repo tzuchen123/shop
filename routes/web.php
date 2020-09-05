@@ -71,7 +71,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth',"admin"]], function (
     Route::group(['prefix' => 'product_types'], function () {
         Route::get('/', 'ProductTypesController@index');
         // Route::get('/create', 'ProductTypesController@create');
-        Route::post('/store', 'ProductTypesController@store');
+        Route::post('/store', 'ProductTypesController@store')->name('type.store');
         Route::get('/edit/{id}', 'ProductTypesController@edit');
         Route::post('/update/{id}', 'ProductTypesController@update');
         Route::post('/destroy/{id}', 'ProductTypesController@destroy');
@@ -108,5 +108,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth',"super_admin"]], func
     });
 });
 
-Route::get('/test', 'TestController@testCarbon');
+
+Route::group(['prefix' => 'user'], function(){
+    //使用者驗證
+    Route::group(['prefix' => 'auth'], function(){
+        //Facebook登入
+        Route::get('/facebook-sign-in', 'UserAuthController@facebookSignInProcess');
+        //Facebook登入重新導向授權資料處理
+        Route::get('/facebook-sign-in-callback', 'UserAuthController@facebookSignInCallbackProcess');
+    });
+});
+
+Route::get('/test', 'TestController@test');
+Route::apiResource('/sample', 'SampleControler@store');
+
 ?>

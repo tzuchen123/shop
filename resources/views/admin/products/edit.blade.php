@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <input type="text" class="form-control d-none" id="delete" name="delete" multiple>
+        <input type="text" class="form-control d-none" id="delete" name="delete" multiple >
 
         <div class="form-group row">
             <label for="new_images" class="col-sm-2 col-form-label">new_images</label>

@@ -119,9 +119,10 @@ return [
     |
     */
 
-    'key' => '32charshere',
-    
-    'cipher' => 'AES-128-CBC',
+    'key' => env('APP_KEY'),
+
+    'cipher' => 'AES-256-CBC',
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -134,7 +135,7 @@ return [
     */
 
     'providers' => [
-        
+
         /*
          * Laravel Framework Service Providers...
          */
@@ -160,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+       
         /*
          * Package Service Providers...
          */
@@ -175,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
-        
+
 
     ],
 
@@ -227,7 +228,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+
     ],
 
 ];

@@ -2,27 +2,40 @@
 
 namespace App\Providers;
 
+
+use App\ProductType;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * The policy mappings for the application.
      *
-     * @return void
+     * @var array
      */
-    public function register()
-    {
-        //
-    }
+    protected $policies = [
+        // 'App\Model' => 'App\Policies\ModelPolicy',
+    ];
 
     /**
-     * Bootstrap any application services.
+     * Register any authentication / authorization services.
      *
      * @return void
      */
     public function boot()
     {
-        //
+        View::share('allProductTypes', ProductType::all());
+         // Using class based composers...
+         View::composer(
+            'test', function($view){
+                $view->with('test', ProductType::all());
+            }
+        );
+
+        view()->composer(
+            'test',
+            \App\Http\View\Composers\TypeComposer::class
+        );
     }
 }

@@ -11,7 +11,9 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- swiper-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    {{-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css"> --}}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
         html,
         body {
@@ -83,45 +85,68 @@
 </head>
 
 <body>
+
+    <script>
+        window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '654822988770649',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v8.0'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
         <div class="top-right links">
             {{-- 登入頁要放在前台 --}}
             @auth
-                {{-- 有登入 --}}
-                @if (Auth::user()->role == "admin" || Auth::user()->role == "super_admin")
-                    <!-- 系統管理者 -->
-                    <a href="/admin">admin</a>
+            {{-- 有登入 --}}
+            @if (Auth::user()->role == "admin" || Auth::user()->role == "super_admin")
+            <!-- 系統管理者 -->
+            <a href="/admin">admin</a>
 
-                    <a class=" " href="{{ route('logout') }}" onclick="event.preventDefault();
+            <a class=" " href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @else
-                    <!-- 一般使用者 -->
-                    <a href="/cart">cart(<span id="TotalQuantity"></span>)</a>
-                    <a href="/user_info/orders">user_info</a>
+                {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            @else
+            <!-- 一般使用者 -->
+            <a href="/cart">cart(<span id="TotalQuantity"></span>)</a>
+            <a href="/user_info/orders">user_info</a>
 
-                    <a class=" " href="{{ route('logout') }}" onclick="event.preventDefault();
+            <a class=" " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                {{ __('Logout') }}
+            </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @endif
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            @endif
             @else
             {{-- 沒登入 --}}
-                <a href="/cart">cart(<span id="TotalQuantity"></span>)
-                    <a href="{{ route('login') }}">Login</a>
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                    @endif
-            @endauth
+            <a href="/cart">cart(<span id="TotalQuantity"></span>)
+                <a href="{{ route('login') }}">Login</a>
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}">Register</a>
+                @endif
+                @endauth
         </div>
         @endif
 
@@ -147,7 +172,9 @@
 
 
     <!-- Optional JavaScript -->
-    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    {{-- <script src="https://unpkg.com/swiper/js/swiper.js"></script> --}}
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>

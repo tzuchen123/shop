@@ -2,21 +2,45 @@
 
 @section('css')
 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
-<STYle>
- .card img {
+
+<style>
+    .card img {
         height: 300px;
     }
 
-</STYle>
+    #banner .img1 {
+        background-image: url("/images/banner1.jpg");
+        width: 100%;
+        height: 60vh;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    #banner .img2 {
+        background-image: url("/images/banner2.jpg");
+        width: 100%;
+        height: 60vh;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #banner .img3 {
+        background-image: url("/images/banner2.jpg");
+        width: 100%;
+        height: 60vh;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
 @endsection
-
-
-
 
 @section('content')
 
 <section id="banner">
+    
     <div class="swiper-container">
+        {{-- <div class="swiper-slide img1"></div> --}}
         <div class="swiper-wrapper">
             <div class="swiper-slide img1"></div>
             <div class="swiper-slide img2"></div>

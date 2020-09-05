@@ -28,7 +28,7 @@ class CartController extends Controller
         $product_id = $request->product_id;
         $product = Product::find($product_id);
 
-        \Cart::add(array( 
+        \Cart::add(array(
             'id' => $product_id,
             'name' => $product->name,
             'price' => $product->price,

@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+
 <div class="container">
     <h2>news-create</h2>
 

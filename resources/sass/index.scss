@@ -4,19 +4,19 @@
 #banner{
     .swiper-wrapper{
         width: 100%;
-        height: 60vh;
+        height: 600px;
        
         .img1{
             @include img_style;
-            background-image: url(../images/blur-1850082_1920.jpg);
+            background-image: url(../images/banner1.jpg);
         }
         .img2{
             @include img_style;
-            background-image: url(../images/clothing-store-984396_1920.jpg);
+            background-image: url(../images/banner2.jpg);
         }
         .img3{
             @include img_style;
-            background-image: url(../images/fashion-1031469_1920.jpg);
+            background-image: url(../images/banner3.jpg);
         }
     }
 }

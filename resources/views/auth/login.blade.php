@@ -2,8 +2,18 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row d-flex justify-content-around">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">fb login</div>
+
+                <div class="card-body">
+                    <a href="/user/auth/facebook-sign-in">Facebook登入</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 

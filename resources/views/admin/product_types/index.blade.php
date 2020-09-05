@@ -16,6 +16,11 @@
 
 @section('content')
 <div class="container">
+  @if ($errors->any())
+      @foreach ($errors->all() as $error)
+      <h1>{{$error}}</h1>
+      @endforeach
+  @endif
     <h2>types-index</h2>
 
     <span>

@@ -52,13 +52,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // 如何驗證註冊資料
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-
-
     }
 
     /**
@@ -67,30 +66,37 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    // protected function create(array $data)
+    // {
+    //     $mail_content = [
+    //         'name' => $data['name']
+    //     ];
+
+    //     Mail::send(
+    //         'email.signup',$mail_content,function ($mail) use ($data) {
+    //             //收件人
+    //             $mail->to($data['email']);
+    //             //郵件主旨
+    //             $mail->subject('恭喜註冊 Shop Laravel 成功!');
+    //         }
+    //     );
+
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //         'role' => User::ROLE_USER,  // 預設為一般使用者
+    //     ]);
+
+
+    // }
     protected function create(array $data)
     {
-        $mail_content = [
-            'name' => $data['name']
-        ];
-
-        Mail::send(
-            'email.signup',$mail_content,function ($mail) use ($data) {
-                //收件人
-                $mail->to($data['email']);
-                //郵件主旨
-                $mail->subject('恭喜註冊 Shop Laravel 成功!');
-            }
-        );
-
+        // 如何根據被傳來的資料建立用戶
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => User::ROLE_USER,  // 預設為一般使用者
         ]);
-
-
     }
-
-
 }
