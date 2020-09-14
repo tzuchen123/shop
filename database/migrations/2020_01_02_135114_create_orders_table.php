@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('time_to_send');
             $table->string('status')->default('new_order');
             $table->integer('total_price');
-            $table->string('remark', '2000');
+            $table->string('remark', '2000')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -96,8 +96,6 @@ class CartController extends Controller
     //確認結帳/填寫資料頁
     public function cart_check_out()
     {
-
-
         $userId = auth()->user()->id;
         $content = \Cart::session($userId)->getContent()->sort();
         $total = \Cart::session($userId)->getTotal();

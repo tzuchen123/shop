@@ -114,7 +114,7 @@
             {{-- 登入頁要放在前台 --}}
             @auth
             {{-- 有登入 --}}
-            @if (Auth::user()->role == "admin" || Auth::user()->role == "super_admin")
+            @if (Auth::user()->role == "admin" || Auth::user()->role == "superAdmin")
             <!-- 系統管理者 -->
             <a href="/admin">admin</a>
 

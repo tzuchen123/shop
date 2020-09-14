@@ -46,7 +46,7 @@
                                 <select class="form-control" name="role" id="role">
                                     {{-- value要寫，value = 送到DB的資料 --}}
                                     <option value="admin">Admin</option>
-                                    <option value="super_admin">SuperAdmin</option>
+                                    <option value="superAdmin">SuperAdmin</option>
                                 </select>
                             </div>
                         </div>

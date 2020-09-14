@@ -98,7 +98,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth',"admin"]], function (
 
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth',"super_admin"]], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth',"superAdmin"]], function () {
     Route::group(['prefix' => 'accounts'], function () {
         Route::get('/', 'AccountsController@index');
         Route::get('/create', 'AccountsController@create');
@@ -108,16 +108,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth',"super_admin"]], func
     });
 });
 
-
-Route::group(['prefix' => 'user'], function(){
-    //使用者驗證
-    Route::group(['prefix' => 'auth'], function(){
-        //Facebook登入
-        Route::get('/facebook-sign-in', 'UserAuthController@facebookSignInProcess');
-        //Facebook登入重新導向授權資料處理
-        Route::get('/facebook-sign-in-callback', 'UserAuthController@facebookSignInCallbackProcess');
-    });
-});
 
 Route::get('/test', 'TestController@test');
 Route::apiResource('/sample', 'SampleControler@store');

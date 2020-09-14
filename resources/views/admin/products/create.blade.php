@@ -42,7 +42,7 @@
       <label for="image" class="col-sm-2 col-form-label">主要圖片</label>
       <div class="col-sm-10">
         <input type="file" class="form-control" id="image" name="image" required>
-        <img id="preview_pic" src="#" />
+        <img id="preview_pic" src="#" style="max-weight:80vw; max-height:80vh"/>
       </div>
     </div>
 

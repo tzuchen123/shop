@@ -39,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if (Auth::user()->role == "super_admin")
+                        @if (Auth::user()->role == "superAdmin")
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/accounts">accounts</a>
                         </li>

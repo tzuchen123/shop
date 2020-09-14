@@ -12,9 +12,24 @@ class TypeTableSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('product_types')->insert([
-        //     'typename'=>'123',
-        // ]);
+        DB::table('product_types')->truncate();
+
+        DB::table('product_types')->insert([
+            'typename'=>'woman',
+        ]);
+
+        DB::table('product_types')->insert([
+            'typename'=>'man',
+        ]);
+
+        DB::table('product_types')->insert([
+            'typename'=>'kid',
+        ]);
+
+        DB::table('product_types')->insert([
+            'typename'=>'accessories',
+        ]);
+        
         $type = factory(ProductType::class,20)->create();
 
     }
